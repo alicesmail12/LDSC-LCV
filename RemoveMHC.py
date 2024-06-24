@@ -32,7 +32,6 @@ GRCh38Map = {
     'rs7721244': 72347198
 }
 
-
 # Functions
 
 
