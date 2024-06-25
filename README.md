@@ -3,7 +3,7 @@
 RemoveMHC.py detects the genome build of a GWAS & removes the MHC region. RemoveMHC.py can be used with the following commands, where RemoveMHC.py is in the directory DIR, and GWAS files are in DIR/GWASFiles:
 
 ```shell
-WORKING=DIR/
+WORKING=users/File/DIR/
 
 $WORKING/RemoveMHC.py \
 --sumstatsFile $WORKING/GWASFiles/GWAS_2.txt \
