@@ -13,7 +13,7 @@ $WORKING/RemoveMHC.py \
 ```
 
 RemoveMHC.py takes the flags:
-- `--sumstatsFile` takes the input GWAS file name
+- `--sumstatsFile` specifies the input GWAS file name
 - `--outFile` specifies the name of the output tsv
 - `--logFile` specifies the name of the log output
 - `--sep` gives the GWAS file format: comma, tab or space-delimited
