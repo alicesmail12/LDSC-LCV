@@ -18,9 +18,9 @@ $WORKING/RemoveMHC.py \
 
 Where:
 - `--sumstatsFile` specifies the input GWAS file name
+- `--sep` gives the GWAS file format: comma, tab or space-delimited
 - `--outFile` specifies the name of the output tsv
 - `--logFile` specifies the name of the log output
-- `--sep` gives the GWAS file format: comma, tab or space-delimited
 
 ### 2. Standardising GWAS
 The following commands create an environment with the correct Python version to perform LDSC:
@@ -48,10 +48,14 @@ After LDSC is activated, one of the commands can be run to check it is working c
 Then the munge_sumstats.py file can be run to standardise a GWAS:
 ```Shell
 $SOFTWARE/munge_sumstats.py \
---out $WORKING/GWASFiles/GWASrmMHC.tsv \
+--sumstats $WORKING/GWASFiles/GWASrmMHC.tsv
 --merge-alleles $WORKING/GWASFiles/w_hm3.snplist \
---sumstats $WORKING/GWASFiles/GWASrmMHCMunge.tsv
+--out $WORKING/GWASFiles/GWASrmMHCMunge \
 ```
+Where:
+- `--sumstats` specifies the input GWAS file name
+- `--merge-alleles` specifies the name of the LD scores file
+- `--out` specifies the name of the output file
 
 ### 3. Heritability & Genetic Correlation
 ### 4. LCV
