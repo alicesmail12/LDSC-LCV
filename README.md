@@ -23,7 +23,7 @@ Where:
 - `--sep` gives the GWAS file format: comma, tab or space-delimited
 
 ### 2. Standardising GWAS
-The LDSC package standardises GWAS files. The following commands create an environment with the correct Python version to perform LDSC:
+The following commands create an environment with the correct Python version to perform LDSC:
 ```Shell
 # Within working dir activate python 2.7 (required for LDSC)
 cd $WORKING
@@ -42,6 +42,15 @@ SOFTWARE=/Users/alicesmail/Desktop/KCL/LCV/ldsc
 cd ldsc   
 conda env create --file environment.yml
 conda activate ldsc
+```
+
+After LDSC is activated, one of the commands can be run to check it is working correctly: `./munge_sumstats.py -h`.
+Then the munge_sumstats.py file can be run to standardise a GWAS:
+```
+$SOFTWARE/munge_sumstats.py \
+--out $WORKING/GWASFiles/GWASrmMHC.tsv \
+--merge-alleles $WORKING/GWASFiles/w_hm3.snplist \
+--sumstats $WORKING/GWASFiles/GWASrmMHCMunge.tsv
 ```
 
 ### 3. Heritability & Genetic Correlation
