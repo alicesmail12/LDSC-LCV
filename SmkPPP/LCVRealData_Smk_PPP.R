@@ -1,13 +1,13 @@
-
+setwd('/Users/alicesmail/')
 
 # Get standardised data (LDSC output)
-P1 = na.omit(read.table("/Users/alicesmail/Desktop/KCL/LCV/GWASFiles/SmkMHC.sumstats.gz", header=TRUE, sep="\t", stringsAsFactors = FALSE))
-P2 = na.omit(read.table("/Users/alicesmail/Desktop/KCL/LCV/GWASFiles/PPPMHC.sumstats.gz", header=TRUE, sep="\t", stringsAsFactors = FALSE))
+P1 = na.omit(read.table("./LCV/GWASFiles/SmkMHC.sumstats.gz", header=TRUE, sep="\t", stringsAsFactors = FALSE))
+P2 = na.omit(read.table("./LCV/GWASFiles/PPPMHC.sumstats.gz", header=TRUE, sep="\t", stringsAsFactors = FALSE))
 
 # Get LD scores
-LDScores = read.table("/Users/alicesmail/Desktop/KCL/LCV/eur_w_ld_chr/1.l2.ldscore.gz", header=TRUE, sep='\t', stringsAsFactors=FALSE)
+LDScores = read.table("./LCV/eur_w_ld_chr/1.l2.ldscore.gz", header=TRUE, sep='\t', stringsAsFactors=FALSE)
 for (i in 2:22){
-  x <- read.table(paste0("/Users/alicesmail/Desktop/KCL/LCV/eur_w_ld_chr/",i,".l2.ldscore.gz"), header=TRUE, sep='\t', stringsAsFactors=FALSE)
+  x <- read.table(paste0("./LCV/eur_w_ld_chr/",i,".l2.ldscore.gz"), header=TRUE, sep='\t', stringsAsFactors=FALSE)
   LDScores <- rbind(LDScores, x)
 }
 
@@ -28,7 +28,7 @@ data[mismatch,]$A1.y = data[mismatch,]$A1.x
 data[mismatch,]$A2.y = data[mismatch,]$A2.x
 
 # Load LCV software
-setwd("/Users/alicesmail/Desktop/KCL/LCV/LCVRScripts")
+setwd("./LCV/LCVRScripts")
 source("./RunLCV.R")
 
 # Run LCV
