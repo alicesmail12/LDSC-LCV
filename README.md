@@ -48,14 +48,28 @@ After LDSC is activated, one of the commands can be run to check it is working c
 Then the munge_sumstats.py file can be run to standardise a GWAS:
 ```Shell
 $SOFTWARE/munge_sumstats.py \
---sumstats $WORKING/GWASFiles/GWASrmMHC.tsv
+--sumstats $WORKING/GWASFiles/GWASrmMHC.tsv \
 --merge-alleles $WORKING/GWASFiles/w_hm3.snplist \
---out $WORKING/GWASFiles/GWASrmMHCMunge \
+--out $WORKING/GWASFiles/GWASrmMHCMunge
 ```
 Where:
 - `--sumstats` specifies the input GWAS file name
-- `--merge-alleles` specifies the name of the LD scores file
+- `--merge-alleles` specifies the name of the HapMap3 high QC SNPs file (used to filter SNPs)
 - `--out` specifies the name of the output file
 
 ### 3. Heritability & Genetic Correlation
+LDSC can also compute the heritability for a single GWAS, and the genetic correlation between 2 GWASes.
+```
+# Get genetic correlation between BMI & T2D
+$SOFTWARE/ldsc.py \
+--ref-ld-chr $WORKING/eur_w_ld_chr/ \
+--w-ld-chr $WORKING/eur_w_ld_chr/ \
+--out $WORKING/Logs/GeneticCorr \
+--rg $WORKING/GWASFiles/GWAS1Munge.sumstats.gz,$WORKING/GWASFiles/GWAS2Munge.sumstats.gz
+```
+Where:
+- `--ref-ld-chr` & `--w-ld-chr` specify the LD score files for separate chromosomes
+- `--out` specifies the name of the output file
+- `--rg` specifies the name of two imput GWAS files
+
 ### 4. LCV
