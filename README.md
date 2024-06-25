@@ -61,7 +61,7 @@ Where:
 ### 3. Heritability & Genetic Correlation
 LDSC can also compute the heritability for a single GWAS, and the genetic correlation between 2 GWASes.
 ```
-# Get genetic correlation between BMI & T2D
+# Get genetic correlation
 $SOFTWARE/ldsc.py \
 --ref-ld-chr $WORKING/eur_w_ld_chr/ \
 --w-ld-chr $WORKING/eur_w_ld_chr/ \
