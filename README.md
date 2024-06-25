@@ -12,6 +12,9 @@ $WORKING/RemoveMHC.py \
 --outFile $WORKING/GWASFiles/GWASrmMHC    
 ```
 
+RemoveMHC.py takes the flags:
+- `--sumstatsFile`
+
 ### 2. Standardising GWAS
 ### 3. Heritability & Genetic Correlation
 ### 4. LCV
