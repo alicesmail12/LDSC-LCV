@@ -1,19 +1,18 @@
-
 #!/bin/bash
 
 # Define working spaces
 WORKING=/Users/alicesmail/Desktop/KCL/LCV
 
-# Remove MHC region
+# Remove MHC region for PPP GWAS
 $WORKING/RemoveMHC.py \
---sumstatsFile $WORKING/GWASFiles/GWAS_2.txt \
+--sumstatsFile $WORKING/GWASFiles/PPP.txt \
 --sep s \
---N 403506 \
 --logFile $WORKING/Logs/PPPMHClog \
 --outFile $WORKING/GWASFiles/PPPMHC            
 
+# Remove MHC region for SmkInit GWAS
 $WORKING/RemoveMHC.py \
---sumstatsFile $WORKING/GWASFiles/GSCAN_SmkInit_2022_GWAS_SUMMARY_STATS_EUR.txt \
+--sumstatsFile $WORKING/GWASFiles/SmkInit.txt \
 --sep t \
 --logFile $WORKING/Logs/SmkMHClog \
 --outFile $WORKING/GWASFiles/SmkMHC
