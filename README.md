@@ -1,2 +1,5 @@
-# LDSC
-Here I am going to upload some of the scripts I have used to perform LSDC & hopefully LCV.
+# LDSC & LCV
+### 1. Removing MHC region
+### 2. Standardising GWAS
+### 3. Heritability & Genetic Correlation
+### 4. LCV
