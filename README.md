@@ -46,7 +46,7 @@ conda activate ldsc
 
 After LDSC is activated, one of the commands can be run to check it is working correctly: `./munge_sumstats.py -h`.
 Then the munge_sumstats.py file can be run to standardise a GWAS:
-```
+```Shell
 $SOFTWARE/munge_sumstats.py \
 --out $WORKING/GWASFiles/GWASrmMHC.tsv \
 --merge-alleles $WORKING/GWASFiles/w_hm3.snplist \
