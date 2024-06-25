@@ -20,7 +20,7 @@ Where:
 
 ### 2. Standardising GWAS
 The LDSC package standardises GWAS files. The following commands create an environment with the correct Python version to perform LDSC:
-```
+```Shell
 # Within working dir activate python 2.7 (required for LDSC)
 cd $WORKING
 CONDA_SUBDIR=osx-64 conda create -n py27 python=2.7                               
