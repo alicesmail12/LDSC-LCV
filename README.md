@@ -1,8 +1,8 @@
 # LDSC & LCV
 ### References
-1. LDSC: Bulik-Sullivan, B. K. et al. (2015) LD Score regression distinguishes confounding from polygenicity in genome-wide association studies. Nature Genetics, 47(3), 291–295. 
-2. Genetic Correlation: Bulik-Sullivan, B. K. et al. (2015) An atlas of genetic correlations across human diseases and traits. Nature Genetics, 47, 1236–1241.
-3. LCV: O'Connor, L. J. & Price, A. L. (2018) Distinguishing genetic correlation from causation across 52 diseases and complex traits. Nature Genetics, 50(12), 1728–1734. 
+1. **LDSC**: Bulik-Sullivan, B. K. et al. (2015) LD Score regression distinguishes confounding from polygenicity in genome-wide association studies. Nature Genetics, 47(3), 291–295. 
+2. **Genetic Correlation**: Bulik-Sullivan, B. K. et al. (2015) An atlas of genetic correlations across human diseases and traits. Nature Genetics, 47, 1236–1241.
+3. **LCV**: O'Connor, L. J. & Price, A. L. (2018) Distinguishing genetic correlation from causation across 52 diseases and complex traits. Nature Genetics, 50(12), 1728–1734. 
 
 ### 1. Removing MHC region
 RemoveMHC.py detects the genome build of a GWAS & removes the MHC region. RemoveMHC.py can be used with the following commands, where RemoveMHC.py is in the directory Dir, and GWAS files are in Dir/GWASFiles:
