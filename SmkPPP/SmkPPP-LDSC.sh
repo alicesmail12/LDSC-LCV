@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define working spaces
-WORKING=/Users/alicesmail/Desktop/KCL/LCV
+WORKING=/Users/alicesmail/Desktop/KCL/LCV/SmkPPP
 
 # Remove MHC region for PPP GWAS
 $WORKING/RemoveMHC.py \
