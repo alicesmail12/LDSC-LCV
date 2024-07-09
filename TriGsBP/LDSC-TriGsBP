@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Define working spaces
+WORKING=/Users/alicesmail/Desktop/KCL/LCV/TriGsBP
+
+# Download GWAS summary statistics: T2D and BMI
+wget http://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST90029001-GCST90030000/GCST90029011/GCST90029011_buildGRCh37.tsv -P $WORKING/GWASFiles
+wget http://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST000001-GCST001000/GCST000758/TG_with_Effect.zip -P $WORKING/GWASFiles
+
+# Within working dir activate python 2.7 (required for LDSC)
+cd $WORKING
+CONDA_SUBDIR=osx-64 conda create -n py27 python=2.7                               
+conda activate py27
+conda config --env --set subdir osx-64         
+
+# Clone LSDC software into working dir
+cd $WORKING
+#git clone https://github.com/bulik/ldsc.git    
+
+# Define software space
+SOFTWARE=/Users/alicesmail/Desktop/KCL/LCV/TriGsBP/ldsc
+
+# Activate LDSC
+cd ldsc   
+conda env create --file environment.yml
+conda activate ldsc
+
+# Check LDSC is working
+./munge_sumstats.py -h
+
+# Software directory
+SOFTWARE=/Users/alicesmail/Desktop/KCL/LCV/TriGsBP/ldsc
+
+# Munge TriG GWAS
+$SOFTWARE/munge_sumstats.py \
+--out $WORKING/GWASFiles/TriG \
+--merge-alleles $WORKING/GWASFiles/w_hm3.snplist \
+--sumstats $WORKING/GWASFiles/TG_with_Effect.tbl \
+--snp MarkerName \
+--signed-sumstats GC.Zscore,0 \
+--N 96598
+
+# Munge sBP GWAS
+$SOFTWARE/munge_sumstats.py \
+--out $WORKING/GWASFiles/sBP \
+--merge-alleles $WORKING/GWASFiles/w_hm3.snplist \
+--sumstats $WORKING/GWASFiles/GCST90029011_buildGRCh37.tsv \
+--snp variant_id 
+
+# Get genetic correlation between TriG & sBP
+$SOFTWARE/ldsc.py \
+--ref-ld-chr $WORKING/eur_w_ld_chr/ \
+--out $WORKING/TriG_sBP \
+--rg $WORKING/GWASFiles/TriG.sumstats.gz,$WORKING/GWASFiles/sBP.sumstats.gz \
+--w-ld-chr $WORKING/eur_w_ld_chr/ 
